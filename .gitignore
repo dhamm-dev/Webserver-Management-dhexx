@@ -1,0 +1,41 @@
+# --- dhexx panel: jangan push rahasia & runtime ---
+
+# Config asli berisi kredensial MySQL server (MYSQL_PASS dll)
+# Pakai config.example.php sebagai template
+config.php
+
+# SQLite + antrean worker + lock (dibuat otomatis saat jalan)
+data/*.sqlite
+data/*.sqlite-wal
+data/*.sqlite-shm
+data/*.sqlite-journal
+data/*.db
+data/queue/*.job
+data/queue/*.result.json
+data/worker.lock
+# Kecualikan proteksi .htaccess
+!data/.htaccess
+
+# Upload user & project fisik — jangan push isi storage
+storage/archives/*
+storage/audio/*
+storage/documents/*
+storage/images/*
+storage/others/*
+storage/videos/*
+storage/projects/*
+# Tapi tetap push struktur + anti-listing
+!storage/index.html
+!storage/**/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs lokal
+*.log
